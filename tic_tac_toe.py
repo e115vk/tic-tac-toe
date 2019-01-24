@@ -163,4 +163,4 @@ def main(board):
             print ("draw!")
             break
 
-            main(board)
+main(board)
