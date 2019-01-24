@@ -1,4 +1,3 @@
-
 #если можем сделать выигрышный ход - делаем
 def pc_win_move(board, pc_token):
     #выигрышные комбинации
@@ -163,6 +162,5 @@ def main(board):
         if counter == 9:
             print ("draw!")
             break
-main(board)
-    
 
+            main(board)
