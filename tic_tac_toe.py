@@ -3,18 +3,12 @@ def pc_win_move(board, pc_token):
     #выигрышные комбинации
     win_coord = ((0,1,2),(3,4,5),(6,7,8),(0,3,6),(1,4,7),(2,5,8),(0,4,8),(2,4,6))
     for each in win_coord:
-        if board[each[0]] == board[each[1]] == pc_token:
-            if str(board[each[2]]) not in "XO":
-                board[each[2]] = pc_token
-                return True
-        if board[each[0]] == board[each[2]] == pc_token:
-            if str(board[each[1]]) not in "XO":
-                board[each[1]] = pc_token
-                return True
-        if board[each[1]] == board[each[2]] == pc_token:
-            if str(board[each[0]]) not in "XO":
-                board[each[0]] = pc_token
-                return True
+        for each in win_coord:
+        for i in range(3):
+            if board[each[(0+i)%3]] == board[each[(1+i)%3]] == pc_token:
+                if str(board[each[(2+i)%3]]) not in "XO":
+                    board[each[(2+i)%3]] = pc_token
+                    return True
     return False
 
 #проверяем, чтобы жалкий человечишка не выиграл скайнет
@@ -22,18 +16,11 @@ def pc_not_lose_move(board, player_token, pc_token):
     #выигрышные комбинации
     win_coord = ((0,1,2),(3,4,5),(6,7,8),(0,3,6),(1,4,7),(2,5,8),(0,4,8),(2,4,6))
     for each in win_coord:
-        if board[each[0]] == board[each[1]] == player_token:
-            if str(board[each[2]]) not in "XO":
-                board[each[2]] = pc_token
-                return True
-        if board[each[0]] == board[each[2]] == player_token:
-            if str(board[each[1]]) not in "XO":
-                board[each[1]] = pc_token
-                return True
-        if board[each[1]] == board[each[2]] == player_token:
-            if str(board[each[0]]) not in "XO":
-                board[each[0]] = pc_token
-                return True
+        for i in range(3):
+            if board[each[(0+i)%3]] == board[each[(1+i)%3]] == player_token:
+                if str(board[each[(2+i)%3]]) not in "XO":
+                    board[each[(2+i)%3]] = pc_token
+                    return True
     return False
 
 #ход по углам    
